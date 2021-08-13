@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <link rel="icon"  type="image/png" href="https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/ESPN_E_icon.svg/1031px-ESPN_E_icon.svg.png">
+        <title> Sport Leagues </title>
+    </head>
+
+	<body class="bg-light">
+		<div class="row justify-content-center" style="background-color: #231f20">
+			<img src="https://media.giphy.com/headers/espn/XBcQa9tP3ROf.gif">
+		</div>
+		<div class="row justify-content-center my-2">
+			<div class="col-md-4 bg-light">
+				<h3 class="m-3 text-center">🏆 Leagues 🏆</h3>
+				<div class="accordion" id="accordionExample">
+					<div class="accordion-item" id="1Baseball">
+						<h2 class="accordion-header" id="headingOne">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lg_baseball" aria-expanded="false" aria-controls="lg_baseball">
+							1 ... Todas las ligas de Baseball
+							</button>
+						</h2>
+						<div id="lg_baseball" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for league in baseball %}
+								<li>{{league.name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="2Women">
+						<h2 class="accordion-header" id="headingTwo">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#lg_mujer" aria-expanded="false" aria-controls="lg_mujer">
+							2 ... Todas las ligas de mujeres
+							</button>
+						</h2>
+						<div id="lg_mujer" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for league in women_leagues %}
+								<li>{{league.name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="3Hockey">
+						<h2 class="accordion-header" id="headingThree">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#allhockey" aria-expanded="false" aria-controls="allhockey">
+							3 ... Todas las donde el deporte es cualquier tipo de Hockey
+							</button>
+						</h2>
+						<div id="allhockey" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for league in allhockey %}
+								<li>{{league.name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="4NoFootball">
+						<h2 class="accordion-header" id="headingFour">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#nofootball" aria-expanded="false" aria-controls="nofootball">
+							4 ... Todas las ligas donde el deporte no sea football
+							</button>
+						</h2>
+						<div id="nofootball" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for league in nofootball %}
+								<li>{{league.name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="5Conference">
+						<h2 class="accordion-header" id="headingFive">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#conference" aria-expanded="false" aria-controls="conference">
+							5 ... Todas las ligas que se llaman "Conferencias"
+							</button>
+						</h2>
+						<div id="conference" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for league in conference %}
+								<li>{{league.name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="6Atlantica">
+						<h2 class="accordion-header" id="headingSix">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#atlantic" aria-expanded="false" aria-controls="atlantic">
+							6 ... Todas las ligas de la región Atlántica
+							</button>
+						</h2>
+						<div id="atlantic" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for league in atlantic %}
+								<li>{{league.name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 bg-light">
+				<h3 class="m-3 text-center">🛡️ Teams 🛡️</h3>
+				<div class="accordion" id="accordionExample">
+					<div class="accordion-item" id="7Dallas">
+						<h2 class="accordion-header" id="headingSeven">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#dallas" aria-expanded="false" aria-controls="dallas">
+							7 ... Todos los equipos con sede en Dallas
+							</button>
+						</h2>
+						<div id="dallas" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for team in dallas %}
+								<li>{{team.team_name}} of {{team.location}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="8Raptors">
+						<h2 class="accordion-header" id="headingEight">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#raptors" aria-expanded="false" aria-controls="raptors">
+							8 ... Todos los equipos nombraron los Raptors ¿wtf?
+							</button>
+						</h2>
+						<div id="raptors" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for team in raptors %}
+								<li>{{team.team_name}} of {{team.location}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="9Ciudad">
+						<h2 class="accordion-header" id="headingNine">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#city" aria-expanded="false" aria-controls="city">
+							9 ... Todos los equipos cuya ubicacion incluye "Ciudad"
+							</button>
+						</h2>
+						<div id="city" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for team in city %}
+								<li>{{team.team_name}} of {{team.location}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="10EmpiezaconT">
+						<h2 class="accordion-header" id="headingTen">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#iniciacont" aria-expanded="false" aria-controls="iniciacont">
+							10 ... Todos los equipos cuyos nombres comienzan con "T"
+							</button>
+						</h2>
+						<div id="iniciacont" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for team in firsT %}
+								<li>{{team.team_name}} of {{team.location}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="11OrdenporUbicacion">
+						<h2 class="accordion-header" id="headingTen">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#orderbylocation" aria-expanded="false" aria-controls="orderbylocation">
+							11 ... Todos los equipos ordenados alfabeticamente por ubicación"
+							</button>
+						</h2>
+						<div id="orderbylocation" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for team in orderlocation %}
+								<li>{{team.location}} {{team.team_name}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="12Nombrequipoalveres">
+						<h2 class="accordion-header" id="headingTwelve">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#reverseorder" aria-expanded="false" aria-controls="reverseorder">
+							12 ... Todos los equipos, ordenados por nombre de equipo en orden alfabético inverso
+							</button>
+						</h2>
+						<div id="reverseorder" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for team in reverseorder %}
+								<li>{{team.team_name}} of {{team.location}}</li>
+								{% empty %}
+								<p>No teams found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 bg-light">
+				<h3 class="m-3 text-center">🏅 Players 🏅</h3>
+				<div class="accordion" id="accordionExample">
+					<div class="accordion-item" id="13Cooper">
+						<h2 class="accordion-header" id="heading13">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cooper" aria-expanded="false" aria-controls="cooper">
+							13 ... Todos los jugadores con apellido Cooper
+							</button>
+						</h2>
+						<div id="cooper" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for player in cooper %}
+								<li>{{player.id}} - {{player.first_name}} {{player.last_name}}</li>
+								{% empty %}
+								<p>No players found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="14Joshua">
+						<h2 class="accordion-header" id="heading14">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#joshua" aria-expanded="false" aria-controls="joshua">
+							14 ... Cada jugador con nombre Joshua
+							</button>
+						</h2>
+						<div id="joshua" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for player in joshua %}
+								<li>{{player.id}} - {{player.first_name}} {{player.last_name}}</li>
+								{% empty %}
+								<p>No players found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="15AllCooperbutJoshua">
+						<h2 class="accordion-header" id="heading15">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#notjoshua" aria-expanded="false" aria-controls="notjoshua">
+							15 ... Todos los jugadores con el apellido Cooper excepto aquellos con Joshua como primer nombre
+							</button>
+						</h2>
+						<div id="notjoshua" class="accordion-collapse collapse" aria-labelledby="heading13" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for player in notjoshua %}
+								<li>{{player.id}} - {{player.first_name}} {{player.last_name}}</li>
+								{% empty %}
+								<p>No players found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+					<div class="accordion-item" id="16AlexWyatt">
+						<h2 class="accordion-header" id="heading16">
+							<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#alexwyatt" aria-expanded="false" aria-controls="alexwyatt">
+							16 ... Todos los jugadores con nombre Alexander o nombre Wyatt
+							</button>
+						</h2>
+						<div id="alexwyatt" class="accordion-collapse collapse" aria-labelledby="heading16" data-bs-parent="#accordionExample">
+							<div class="accordion-body">
+							{% for player in alexwyatt %}
+								<li>{{player.id}} - {{player.first_name}} {{player.last_name}}</li>
+								{% empty %}
+								<p>No players found.</p>
+							{% endfor %}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
